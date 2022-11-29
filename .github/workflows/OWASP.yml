@@ -1,6 +1,5 @@
 name: OWASAP ZAP integration with github actions
 on: [push]
-
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
