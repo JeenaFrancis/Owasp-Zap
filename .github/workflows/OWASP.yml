@@ -9,10 +9,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: develop
+          ref: main
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.6.1
         with:
           docker_name: 'owasp/zap2docker-stable'
           target: 'https://example.com'
-          continueOnError: true
+          cmd_options: '-a'
