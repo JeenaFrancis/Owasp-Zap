@@ -15,8 +15,8 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 - script: |
-   - checkout: self
-   - checkout: https://github.com/JeenaFrancis/Owasp-Zap.git
+   name: Checkout
+        uses: actions/checkout@v2
 - task: DockerInstaller@0
   inputs:
     dockerVersion: '17.09.0-ce'
