@@ -1,5 +1,6 @@
 name: OWASAP ZAP integration with github actions
-on: [push]
+trigger:
+- main
 
 jobs:
   zap_scan:
