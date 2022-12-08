@@ -11,7 +11,7 @@ pool:
 
 steps:
 - checkout: self
-- checkout: https://github.com/JeenaFrancis/Owasp-Zap.git
+- checkout: github.com/JeenaFrancis/Owasp-Zap.git
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
