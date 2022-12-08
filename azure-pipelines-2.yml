@@ -10,8 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- checkout: 'self'
-- checkout: github.com/JeenaFrancis/Owasp-Zap.git
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
@@ -29,3 +27,8 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/full-scan-report.html'
     ArtifactName: 'Report'
     publishLocation: 'Container'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)/full-scan-report.html'
+    artifact: 'full-scan-report'
+    publishLocation: 'pipeline'
