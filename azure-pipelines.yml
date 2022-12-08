@@ -22,11 +22,11 @@ steps:
     dockerVersion: '17.09.0-ce'
 - task: CmdLine@2
   inputs:
-   script: |
-      docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t https://example.com/ -r baseline-report.html
+    script: |
+      docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t https://example.com -r baseline-scan-report.html
       true
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)\artifact/baseline-report.html'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/baseline-scan-report.html'
     ArtifactName: 'Report'
     publishLocation: 'Container'
