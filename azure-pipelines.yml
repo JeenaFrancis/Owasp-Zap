@@ -22,5 +22,9 @@ steps:
    script: |
       docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t https://example.com/ -r full-scan-report.html
       true
-- publish: '$(System.DefaultWorkingDirectory)/baseline-scan-report.html'
-  artifact: Report
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'Report'
+    downloadPath: '$(System.ArtifactsDirectory)/baseline-scan-report.html'
