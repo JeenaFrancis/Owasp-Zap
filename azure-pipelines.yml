@@ -24,6 +24,6 @@ steps:
       true
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)\artifact/full-scan-report.html'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Report'
     publishLocation: 'Container'
