@@ -13,7 +13,6 @@ steps:
 - script: |
    - checkout: self
    - checkout: https://github.com/JeenaFrancis/Owasp-Zap.git
-  displayName: 'Run a multi-line script'
 - task: DockerInstaller@0
   inputs:
     dockerVersion: '17.09.0-ce'
