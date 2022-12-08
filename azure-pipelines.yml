@@ -11,8 +11,8 @@ pool:
 
 steps:
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+   - checkout: self
+   - checkout: https://github.com/JeenaFrancis/Owasp-Zap.git
   displayName: 'Run a multi-line script'
 - task: DockerInstaller@0
   inputs:
@@ -20,11 +20,10 @@ steps:
 - task: CmdLine@2
   inputs:
    script: |
-      docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t https://example.com/ -r full-scan-report.html
+      docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t https://example.com/ -r baseline-report.html
       true
-- task: DownloadBuildArtifacts@0
+- task: PublishBuildArtifacts@1
   inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'Report'
-    downloadPath: '$(System.ArtifactsDirectory)/baseline-scan-report.html'
+    PathtoPublish: '$(build.artifactstagingdirectory)\artifact/baseline-report.html'
+    ArtifactName: 'Report'
+    publishLocation: 'Container'
