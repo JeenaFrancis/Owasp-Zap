@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- checkout: self
+- checkout: 'self'
 - checkout: github.com/JeenaFrancis/Owasp-Zap.git
 - script: |
     echo Add other tasks to build, test, and deploy your project.
