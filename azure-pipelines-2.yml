@@ -24,6 +24,6 @@ steps:
       true
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: $(Build.ArtifactStagingDirectory)/
+    PathtoPublish: $(System.DefaultWorkingDirectory)/
     ArtifactName: 'Report'
     publishLocation: 'Container'
