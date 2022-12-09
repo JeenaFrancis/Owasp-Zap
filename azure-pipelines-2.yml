@@ -24,11 +24,6 @@ steps:
       true
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/full-scan-report.html'
+    PathtoPublish: $(Build.ArtifactStagingDirectory)/full-scan-report.html
     ArtifactName: 'Report'
     publishLocation: 'Container'
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)/full-scan-report.html'
-    artifact: 'full-scan-report'
-    publishLocation: 'pipeline'
