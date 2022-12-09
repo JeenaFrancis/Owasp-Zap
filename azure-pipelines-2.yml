@@ -22,10 +22,10 @@ steps:
     script: |
       mkdir -p report
       chmod 777 report
-      docker run --rm -v $(pwd)/report:/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t https://example.com -r full-scan-report.html -s '/src' -o '/report' --format "HTML"
+      docker run --rm -v $(pwd)/report:/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py -t https://example.com -r baseline-scan-report.html -s '/src' -o '/report' --format "HTML"
       true
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: $(System.DefaultWorkingDirectory)/report/full-scan-report.html
+    PathtoPublish: $(System.DefaultWorkingDirectory)/report/baseline-scan-report.html
     ArtifactName: 'Report'
     publishLocation: 'Container'
