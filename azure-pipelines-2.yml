@@ -21,10 +21,9 @@ steps:
   inputs:
     script: |
       docker run --rm -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-full-scan.py -t https://example.com/ -r full-scan-report.html
-      targetFolder: $(Build.ArtifactStagingDirectory)/full-scan-report.html
       true
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: $(Build.ArtifactStagingDirectory)/full-scan-report.html
+    PathtoPublish: $(Build.ArtifactStagingDirectory)/
     ArtifactName: 'Report'
     publishLocation: 'Container'
