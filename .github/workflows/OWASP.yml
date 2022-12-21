@@ -16,3 +16,4 @@ jobs:
           docker_name: 'owasp/zap2docker-stable'
           target: 'https://example.com'
           cmd_options: '-a'
+
